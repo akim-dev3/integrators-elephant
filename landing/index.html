@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Внедрение и настройка Битрикс24: CRM, автоматизация, интеграции, обучение. Официальный партнёр.">
+  <meta name="theme-color" content="#0B0B0B">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'self'; img-src 'self' data:; connect-src 'self';">
+  <title>БИТРИКС.ПРО — Настройка Битрикс24 под ваш бизнес</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%23D4AF37'/%3E%3Ctext x='12' y='17' font-family='Inter,sans-serif' font-size='14' font-weight='800' text-anchor='middle' fill='%230B0B0B'%3EБ%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Skip link for keyboard nav -->
+  <a class="skip-link" href="#main">Перейти к содержимому</a>
+
+  <!-- Preloader -->
+  <div class="preloader" id="preloader" aria-hidden="true">
+    <div class="preloader__logo">
+      <span class="preloader__mark">Б</span>
+    </div>
+    <div class="preloader__bar"><div class="preloader__fill" id="preloaderFill"></div></div>
+    <div class="preloader__txt">Загрузка <span id="preloaderPct">0</span>%</div>
+  </div>
+
+  <!-- Scroll progress -->
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <!-- Custom cursor -->
+  <div class="cursor" id="cursor" aria-hidden="true">
+    <div class="cursor__dot"></div>
+    <div class="cursor__ring"></div>
+  </div>
+
+  <!-- Background layers -->
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="bg-mesh" aria-hidden="true">
+    <span></span><span></span><span></span>
+  </div>
+  <canvas id="particles" aria-hidden="true"></canvas>
+
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="#" class="logo" aria-label="БИТРИКС.ПРО — на главную">
+        <span class="logo__mark">Б</span>
+        <span class="logo__text">БИТРИКС<span class="logo__dot">.</span>ПРО</span>
+      </a>
+      <nav class="nav" id="nav" aria-label="Главное меню">
+        <a href="#services" data-spy="services">Услуги</a>
+        <a href="#process" data-spy="process">Процесс</a>
+        <a href="#pricing" data-spy="pricing">Тарифы</a>
+        <a href="#cases" data-spy="cases">Кейсы</a>
+        <a href="#reviews" data-spy="reviews">Отзывы</a>
+        <a href="#faq" data-spy="faq">FAQ</a>
+      </nav>
+      <a href="#cta" class="btn btn--primary header__cta magnetic" data-magnetic>Консультация</a>
+      <button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main id="main">
+
+  <section class="hero" data-parallax>
+    <div class="hero__glow" data-parallax-speed="0.2"></div>
+
+    <div class="cube-stage" data-parallax-speed="0.4" aria-hidden="true">
+      <div class="cube">
+        <div class="cube__face cube__face--front">Б</div>
+        <div class="cube__face cube__face--back">24</div>
+        <div class="cube__face cube__face--right">CRM</div>
+        <div class="cube__face cube__face--left">1С</div>
+        <div class="cube__face cube__face--top">API</div>
+        <div class="cube__face cube__face--bottom">PRO</div>
+      </div>
+    </div>
+
+    <div class="container hero__inner">
+      <div class="hero__tag reveal">
+        <span class="hero__tag-dot"></span>
+        Сертифицированный партнёр 1С‑Битрикс
+      </div>
+      <h1 class="hero__title reveal" data-split>Настроим Битрикс24 под ваш бизнес</h1>
+      <p class="hero__sub reveal">CRM, автоматизация, интеграции и обучение «под ключ».</p>
+      <div class="hero__actions reveal">
+        <a href="#cta" class="btn btn--primary magnetic" data-magnetic>Получить консультацию</a>
+        <a href="#services" class="btn btn--ghost magnetic" data-magnetic>Смотреть услуги</a>
+      </div>
+      <div class="hero__mini reveal">
+        <div><strong>320+</strong> проектов</div>
+        <div><strong>4.9</strong> рейтинг</div>
+        <div><strong>48ч</strong> запуск</div>
+      </div>
+    </div>
+    <div class="scroll-hint" aria-hidden="true"><span></span></div>
+  </section>
+
+  <section class="stats">
+    <div class="container stats__grid">
+      <div class="stat-card reveal">
+        <div class="stat-card__num" data-count="320">0</div>
+        <div class="stat-card__plus">+</div>
+        <div class="stat-card__label">проектов</div>
+      </div>
+      <div class="stat-card reveal">
+        <div class="stat-card__num" data-count="9">0</div>
+        <div class="stat-card__plus">лет</div>
+        <div class="stat-card__label">опыт команды</div>
+      </div>
+      <div class="stat-card reveal">
+        <div class="stat-card__num" data-count="48">0</div>
+        <div class="stat-card__plus">ч</div>
+        <div class="stat-card__label">средний срок старта</div>
+      </div>
+      <div class="stat-card reveal">
+        <div class="stat-card__num" data-count="98">0</div>
+        <div class="stat-card__plus">%</div>
+        <div class="stat-card__label">довольных клиентов</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="services" id="services">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Услуги</span>
+        <h2>Что мы делаем</h2>
+      </div>
+
+      <div class="services__grid">
+        <article class="srv tilt reveal" data-modal="crm">
+          <div class="srv__icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 7h16M4 12h16M4 17h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+          <h3>Внедрение CRM</h3>
+          <p>Воронки, права, сделки.</p>
+          <span class="srv__arrow">→</span>
+        </article>
+
+        <article class="srv tilt reveal" data-modal="auto">
+          <div class="srv__icon"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/><path d="M19 12a7 7 0 11-7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+          <h3>Автоматизация</h3>
+          <p>Роботы и бизнес‑процессы.</p>
+          <span class="srv__arrow">→</span>
+        </article>
+
+        <article class="srv tilt reveal" data-modal="integ">
+          <div class="srv__icon"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <h3>Интеграции</h3>
+          <p>1С, телефония, мессенджеры.</p>
+          <span class="srv__arrow">→</span>
+        </article>
+
+        <article class="srv tilt reveal" data-modal="portal">
+          <div class="srv__icon"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="14" rx="2" stroke="currentColor" stroke-width="2"/><path d="M8 20h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+          <h3>Корп. портал</h3>
+          <p>Структура и роли.</p>
+          <span class="srv__arrow">→</span>
+        </article>
+
+        <article class="srv tilt reveal" data-modal="bi">
+          <div class="srv__icon"><svg viewBox="0 0 24 24" fill="none"><path d="M3 12l4-4 4 4 4-4 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <h3>Аналитика</h3>
+          <p>Отчёты и KPI.</p>
+          <span class="srv__arrow">→</span>
+        </article>
+
+        <article class="srv tilt reveal" data-modal="edu">
+          <div class="srv__icon"><svg viewBox="0 0 24 24" fill="none"><circle cx="9" cy="8" r="3" stroke="currentColor" stroke-width="2"/><circle cx="17" cy="8" r="2" stroke="currentColor" stroke-width="2"/><path d="M3 19c0-3 3-5 6-5s6 2 6 5M15 19c0-2 2-3.5 4-3.5s2 1.5 2 3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+          <h3>Обучение</h3>
+          <p>Команда работает с первого дня.</p>
+          <span class="srv__arrow">→</span>
+        </article>
+
+        <article class="srv tilt reveal" data-modal="migr">
+          <div class="srv__icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2v20M5 9l7-7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <h3>Миграция</h3>
+          <p>Перенос данных без потерь.</p>
+          <span class="srv__arrow">→</span>
+        </article>
+
+        <article class="srv tilt reveal" data-modal="support">
+          <div class="srv__icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-12V5l-8-3-8 3v5c0 8 8 12 8 12z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></div>
+          <h3>Поддержка</h3>
+          <p>Сопровождение 24/7.</p>
+          <span class="srv__arrow">→</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="process" id="process">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Процесс</span>
+        <h2>Четыре шага</h2>
+      </div>
+
+      <div class="process__wrap">
+        <svg class="process__svg" viewBox="0 0 1200 80" preserveAspectRatio="none" aria-hidden="true">
+          <defs>
+            <linearGradient id="lineGrad" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#D4AF37" stop-opacity="0"/>
+              <stop offset=".5" stop-color="#D4AF37" stop-opacity=".7"/>
+              <stop offset="1" stop-color="#D4AF37" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+          <path id="processPath" d="M0 40 C 200 0, 400 80, 600 40 S 1000 0, 1200 40" stroke="url(#lineGrad)" stroke-width="2" fill="none" stroke-dasharray="2000" stroke-dashoffset="2000"/>
+        </svg>
+        <div class="process__grid">
+          <div class="step reveal"><div class="step__num">01</div><h3>Аудит</h3><p>Изучаем процессы.</p></div>
+          <div class="step reveal"><div class="step__num">02</div><h3>План</h3><p>ТЗ и роадмап.</p></div>
+          <div class="step reveal"><div class="step__num">03</div><h3>Настройка</h3><p>Внедряем и тестируем.</p></div>
+          <div class="step reveal"><div class="step__num">04</div><h3>Запуск</h3><p>Обучение и поддержка.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pricing" id="pricing">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Тарифы</span>
+        <h2>Выберите подход</h2>
+      </div>
+
+      <div class="pricing__toggle reveal" role="tablist" aria-label="Период оплаты">
+        <button class="pricing__opt is-active" data-period="month" role="tab" aria-selected="true">Поэтапно</button>
+        <button class="pricing__opt" data-period="year" role="tab" aria-selected="false">Под ключ (-15%)</button>
+        <span class="pricing__slider"></span>
+      </div>
+
+      <div class="pricing__grid">
+        <article class="plan reveal">
+          <div class="plan__head"><h3>Старт</h3><span class="plan__note">для малого бизнеса</span></div>
+          <div class="plan__price"><span class="plan__cur">от</span><span class="plan__num" data-price-month="60000" data-price-year="51000">60 000</span><span class="plan__cur">₽</span></div>
+          <ul class="plan__list">
+            <li>Базовая настройка CRM</li>
+            <li>1 воронка продаж</li>
+            <li>Подключение почты</li>
+            <li>2 часа обучения</li>
+          </ul>
+          <a href="#cta" class="btn btn--ghost magnetic" data-magnetic>Выбрать</a>
+        </article>
+
+        <article class="plan plan--featured reveal">
+          <div class="plan__badge">Популярно</div>
+          <div class="plan__head"><h3>Бизнес</h3><span class="plan__note">оптимальный</span></div>
+          <div class="plan__price"><span class="plan__cur">от</span><span class="plan__num" data-price-month="180000" data-price-year="153000">180 000</span><span class="plan__cur">₽</span></div>
+          <ul class="plan__list">
+            <li>Всё из «Старт»</li>
+            <li>3 воронки + сценарии</li>
+            <li>Интеграция с 1С</li>
+            <li>Телефония и мессенджеры</li>
+            <li>8 часов обучения</li>
+          </ul>
+          <a href="#cta" class="btn btn--primary magnetic" data-magnetic>Выбрать</a>
+        </article>
+
+        <article class="plan reveal">
+          <div class="plan__head"><h3>Корпорация</h3><span class="plan__note">под ключ</span></div>
+          <div class="plan__price"><span class="plan__cur">от</span><span class="plan__num" data-price-month="450000" data-price-year="382500">450 000</span><span class="plan__cur">₽</span></div>
+          <ul class="plan__list">
+            <li>Всё из «Бизнес»</li>
+            <li>Кастомные модули</li>
+            <li>API‑интеграции</li>
+            <li>Корпоративный портал</li>
+            <li>SLA и приоритет</li>
+          </ul>
+          <a href="#cta" class="btn btn--ghost magnetic" data-magnetic>Выбрать</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="calc" id="calc">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Калькулятор</span>
+        <h2>Стоимость за 30 секунд</h2>
+      </div>
+
+      <div class="calc__box reveal">
+        <div class="calc__list">
+          <label class="calc__opt"><input type="checkbox" data-cost="40000" checked><span>Внедрение CRM</span><span class="calc__cost">40 000 ₽</span></label>
+          <label class="calc__opt"><input type="checkbox" data-cost="30000"><span>Интеграция с 1С</span><span class="calc__cost">30 000 ₽</span></label>
+          <label class="calc__opt"><input type="checkbox" data-cost="20000"><span>Телефония</span><span class="calc__cost">20 000 ₽</span></label>
+          <label class="calc__opt"><input type="checkbox" data-cost="25000"><span>Мессенджеры (WA/TG)</span><span class="calc__cost">25 000 ₽</span></label>
+          <label class="calc__opt"><input type="checkbox" data-cost="35000"><span>Автоматизация процессов</span><span class="calc__cost">35 000 ₽</span></label>
+          <label class="calc__opt"><input type="checkbox" data-cost="18000"><span>Обучение команды</span><span class="calc__cost">18 000 ₽</span></label>
+          <label class="calc__opt"><input type="checkbox" data-cost="50000"><span>Корпоративный портал</span><span class="calc__cost">50 000 ₽</span></label>
+          <label class="calc__opt"><input type="checkbox" data-cost="22000"><span>Аналитика и BI</span><span class="calc__cost">22 000 ₽</span></label>
+        </div>
+        <aside class="calc__result">
+          <div class="calc__resLabel">Итого ориентировочно</div>
+          <div class="calc__resNum"><span id="calcSum">40 000</span> <span>₽</span></div>
+          <div class="calc__resSub">Срок: <span id="calcDays">3</span> дн.</div>
+          <a href="#cta" class="btn btn--primary magnetic" data-magnetic>Зафиксировать смету</a>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="cases" id="cases">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Кейсы</span>
+        <h2>Реальные результаты</h2>
+      </div>
+
+      <div class="cases__filter reveal" role="tablist" aria-label="Фильтр кейсов">
+        <button class="case-filter is-active" data-filter="all">Все</button>
+        <button class="case-filter" data-filter="retail">Ритейл</button>
+        <button class="case-filter" data-filter="b2b">B2B</button>
+        <button class="case-filter" data-filter="service">Услуги</button>
+        <button class="case-filter" data-filter="prod">Производство</button>
+      </div>
+
+      <div class="cases__grid" id="casesGrid">
+        <article class="case-card reveal" data-cat="retail"><div class="case-card__tag">Ритейл</div><h3>Сеть магазинов косметики</h3><p>+47% повторных продаж за 3 месяца</p><div class="case-card__metric"><b>+47%</b><span>повторные</span></div></article>
+        <article class="case-card reveal" data-cat="b2b"><div class="case-card__tag">B2B</div><h3>Поставщик оборудования</h3><p>Сократили цикл сделки в 2 раза</p><div class="case-card__metric"><b>×2</b><span>скорость</span></div></article>
+        <article class="case-card reveal" data-cat="service"><div class="case-card__tag">Услуги</div><h3>Клиника эстетической медицины</h3><p>Автоматизировали запись клиентов</p><div class="case-card__metric"><b>+62%</b><span>загрузка</span></div></article>
+        <article class="case-card reveal" data-cat="prod"><div class="case-card__tag">Производство</div><h3>Завод металлоконструкций</h3><p>Связали 1С и Битрикс24</p><div class="case-card__metric"><b>−38%</b><span>ошибки</span></div></article>
+        <article class="case-card reveal" data-cat="retail"><div class="case-card__tag">Ритейл</div><h3>Маркетплейс одежды</h3><p>Внедрили омниканальные продажи</p><div class="case-card__metric"><b>+120</b><span>лидов/день</span></div></article>
+        <article class="case-card reveal" data-cat="b2b"><div class="case-card__tag">B2B</div><h3>IT‑интегратор</h3><p>Настроили проектное управление</p><div class="case-card__metric"><b>+31%</b><span>выручка</span></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="advantages" id="advantages">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Преимущества</span>
+        <h2>Почему мы</h2>
+      </div>
+      <div class="adv__grid">
+        <div class="adv reveal"><span class="adv__check">✓</span><div><h3>Сертификаты</h3><p>Официальный партнёр.</p></div></div>
+        <div class="adv reveal"><span class="adv__check">✓</span><div><h3>Под ключ</h3><p>Без подрядчиков‑прослоек.</p></div></div>
+        <div class="adv reveal"><span class="adv__check">✓</span><div><h3>Быстрый старт</h3><p>Запуск за 48 часов.</p></div></div>
+        <div class="adv reveal"><span class="adv__check">✓</span><div><h3>Фикс‑цена</h3><p>Без сюрпризов в смете.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="reviews" id="reviews">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Отзывы</span>
+        <h2>Слово клиентам</h2>
+      </div>
+      <div class="reviews__slider reveal" id="reviewsSlider">
+        <div class="reviews__track" id="reviewsTrack">
+          <figure class="review">
+            <div class="review__stars">★★★★★</div>
+            <blockquote>«Внедрили CRM за неделю, команда сразу начала работать. Уровень сервиса — выше ожиданий.»</blockquote>
+            <figcaption><strong>Анна К.</strong><span>директор по продажам</span></figcaption>
+          </figure>
+          <figure class="review">
+            <div class="review__stars">★★★★★</div>
+            <blockquote>«После интеграции с 1С — мы наконец-то видим всю картину по клиентам в одном окне.»</blockquote>
+            <figcaption><strong>Михаил Л.</strong><span>CEO, B2B</span></figcaption>
+          </figure>
+          <figure class="review">
+            <div class="review__stars">★★★★★</div>
+            <blockquote>«Прозрачные сроки и фиксированный бюджет. Без неожиданных счетов в конце месяца.»</blockquote>
+            <figcaption><strong>Дарья В.</strong><span>финансовый директор</span></figcaption>
+          </figure>
+          <figure class="review">
+            <div class="review__stars">★★★★★</div>
+            <blockquote>«Автоматизация процессов сэкономила команде около 30 часов в неделю.»</blockquote>
+            <figcaption><strong>Игорь С.</strong><span>руководитель отдела</span></figcaption>
+          </figure>
+        </div>
+        <div class="reviews__nav">
+          <button class="rev-btn" id="revPrev" aria-label="Предыдущий отзыв">←</button>
+          <div class="rev-dots" id="revDots"></div>
+          <button class="rev-btn" id="revNext" aria-label="Следующий отзыв">→</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="marquee" aria-hidden="true">
+    <div class="marquee__track">
+      <span>CRM</span><span>•</span><span>1С</span><span>•</span><span>API</span><span>•</span>
+      <span>Телефония</span><span>•</span><span>WhatsApp</span><span>•</span><span>Telegram</span><span>•</span>
+      <span>Аналитика</span><span>•</span><span>Автоматизация</span><span>•</span>
+      <span>CRM</span><span>•</span><span>1С</span><span>•</span><span>API</span><span>•</span>
+      <span>Телефония</span><span>•</span><span>WhatsApp</span><span>•</span><span>Telegram</span><span>•</span>
+      <span>Аналитика</span><span>•</span><span>Автоматизация</span><span>•</span>
+    </div>
+  </section>
+
+  <section class="cta" id="cta">
+    <div class="cta__glow"></div>
+    <div class="container cta__inner">
+      <div class="reveal">
+        <span class="eyebrow">Контакты</span>
+        <h2>Готовы обсудить?</h2>
+        <p class="cta__sub">Оставьте контакт — перезвоним за 15 минут.</p>
+      </div>
+      <form class="cta__form reveal" id="leadForm" novalidate autocomplete="on">
+        <div class="field">
+          <input type="text" name="name" id="fName" placeholder="Имя" required minlength="2" maxlength="50" autocomplete="name" aria-label="Ваше имя">
+          <span class="field__err" id="errName"></span>
+        </div>
+        <div class="field">
+          <input type="tel" name="phone" id="fPhone" placeholder="+7 (___) ___‑__‑__" required autocomplete="tel" inputmode="tel" aria-label="Телефон">
+          <span class="field__err" id="errPhone"></span>
+        </div>
+        <!-- Honeypot -->
+        <input type="text" name="website" class="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button type="submit" class="btn btn--primary magnetic" data-magnetic id="leadSubmit">Отправить</button>
+      </form>
+      <p class="cta__priv">Нажимая «Отправить», вы соглашаетесь с <a href="#" rel="noopener noreferrer">политикой обработки данных</a>.</p>
+    </div>
+  </section>
+
+  <section class="faq" id="faq">
+    <div class="container faq__wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">FAQ</span>
+        <h2>Частые вопросы</h2>
+      </div>
+      <div class="faq__list">
+        <details class="faq__item reveal"><summary>Сколько стоит настройка?<span class="faq__plus"></span></summary><p>От 60 000 ₽ — зависит от объёма работ.</p></details>
+        <details class="faq__item reveal"><summary>Сроки запуска?<span class="faq__plus"></span></summary><p>Базовая конфигурация — 2–5 дней.</p></details>
+        <details class="faq__item reveal"><summary>Работаете с облаком и коробкой?<span class="faq__plus"></span></summary><p>Да, обе версии Битрикс24.</p></details>
+        <details class="faq__item reveal"><summary>Есть ли поддержка?<span class="faq__plus"></span></summary><p>Да, пакеты сопровождения от 10 часов в месяц.</p></details>
+        <details class="faq__item reveal"><summary>Сделаете интеграцию с 1С?<span class="faq__plus"></span></summary><p>Да, под любую конфигурацию.</p></details>
+      </div>
+    </div>
+  </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <span class="logo__mark">Б</span>
+        <span>БИТРИКС<span class="logo__dot">.</span>ПРО</span>
+      </div>
+      <div class="footer__cols">
+        <div>
+          <h4>Контакты</h4>
+          <p>+7 (800) 000‑00‑00</p>
+          <p>hello@bitrix.pro</p>
+        </div>
+        <div>
+          <h4>Меню</h4>
+          <a href="#services">Услуги</a>
+          <a href="#pricing">Тарифы</a>
+          <a href="#cases">Кейсы</a>
+          <a href="#faq">FAQ</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom container">© 2026 БИТРИКС.ПРО · Все права защищены</div>
+  </footer>
+
+  <!-- Floating UI -->
+  <button class="back-top" id="backTop" aria-label="Наверх">↑</button>
+
+  <button class="chat-fab" id="chatFab" aria-label="Открыть чат">
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 5h16v11H7l-3 3V5z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+    <span class="chat-fab__pulse"></span>
+  </button>
+
+  <!-- Toast container -->
+  <div class="toasts" id="toasts" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- Modal -->
+  <div class="modal" id="modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal__backdrop" data-close></div>
+    <div class="modal__panel">
+      <button class="modal__close" data-close aria-label="Закрыть">×</button>
+      <h3 id="modalTitle">Заголовок</h3>
+      <p id="modalText">Описание</p>
+      <ul id="modalList"></ul>
+      <a href="#cta" class="btn btn--primary magnetic" data-magnetic data-close>Обсудить</a>
+    </div>
+  </div>
+
+  <!-- Chat widget -->
+  <div class="chat" id="chat" aria-hidden="true">
+    <div class="chat__head">
+      <div class="chat__title">Онлайн‑консультант</div>
+      <button class="chat__close" id="chatClose" aria-label="Закрыть">×</button>
+    </div>
+    <div class="chat__body" id="chatBody">
+      <div class="msg msg--bot">Здравствуйте! Чем помочь по Битрикс24?</div>
+    </div>
+    <form class="chat__form" id="chatForm">
+      <input type="text" id="chatInput" placeholder="Ваш вопрос…" maxlength="200" autocomplete="off">
+      <button type="submit" aria-label="Отправить">→</button>
+    </form>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
