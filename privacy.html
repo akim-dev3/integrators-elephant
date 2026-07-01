@@ -174,5 +174,34 @@
     </div>
     <div class="footer__bottom container">© 2026 Интеграторы Слон · Все права защищены</div>
   </footer>
+
+  <script>
+  /* iframe auto-resize: report height to parent so iframe grows to fit content */
+  (function() {
+    if (window.parent === window) return; // not in iframe
+    var lastH = 0;
+    function report() {
+      var h = Math.max(
+        document.documentElement.scrollHeight,
+        document.body ? document.body.scrollHeight : 0
+      );
+      if (h && Math.abs(h - lastH) > 2) {
+        lastH = h;
+        window.parent.postMessage({ slbHeight: h, slbSource: 'integrators-slon' }, '*');
+      }
+    }
+    report();
+    window.addEventListener('load', report);
+    window.addEventListener('resize', report);
+    if ('ResizeObserver' in window) {
+      new ResizeObserver(report).observe(document.documentElement);
+    }
+    var i = 0;
+    var iv = setInterval(function() {
+      report();
+      if (++i > 25) clearInterval(iv);
+    }, 200);
+  })();
+  </script>
 </body>
 </html>
